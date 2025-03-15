@@ -1,0 +1,51 @@
+# taken from https://dev.to/dhanu0510/how-to-configure-c-code-formatting-in-visual-studio-code-4d5m
+# see also https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+Language: Cpp
+BasedOnStyle: Google
+IndentWidth: 4
+UseTab: Never
+TabWidth: 8
+ColumnLimit: 200
+PointerAlignment: Right
+AccessModifierOffset: -2
+DerivePointerAlignment: true
+AllowShortFunctionsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: false
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakTemplateDeclarations: true
+IndentCaseLabels: true
+
+PPIndentWidth: -1
+IndentPPDirectives: BeforeHash
+ContinuationIndentWidth: 4
+IndentDecls: true
+SpaceBeforeParens: ControlStatements
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: false
+    AfterEnum: false
+    AfterFunction: false
+    AfterStruct: false
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeWhile: true
+    SplitEmptyFunction: false
+
+AlignConsecutiveAssignments:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: false
+
+AlignConsecutiveDeclarations:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: false
+
+AlignConsecutiveMacros:
+    Enabled: true
+    AcrossEmptyLines: true
+    AcrossComments: false
