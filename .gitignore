@@ -4,3 +4,6 @@
 .vscode/launch.json
 .vscode/ipch
 debug.log
+ESP_table.bin
+*.exe
+gen_esp32part.py
