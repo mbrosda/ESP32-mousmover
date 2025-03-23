@@ -6,8 +6,8 @@
     #include <ArduinoOTA.h>
     #include <ESPmDNS.h>
 
-    #include <myWiFisecrets.h>
-    #include <myWifiInit.h>
+    #include <myWiFi_secrets.h>
+    #include <myWiFi_Init.h>
 #endif
 // clang-format on
 
@@ -113,7 +113,7 @@ void loop() {
 // WiFi / OTA handler
 //-------------------------------------------------------------------
 #ifdef OTA
-    #include <myWifi_handler.h>
+    #include <myWiFi_handler.h>
     ArduinoOTA.handle();
 #endif
 
