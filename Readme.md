@@ -6,6 +6,16 @@ This is my first public ESP32 project. It compiles on PlatformIO and uses a [ESP
 
 I hear you saying *"you could simply disable your screensaver"*. Correct. But I was tired to change the settings every time Microsoft, HP or whoever decided that my laptop had to be a bit "greener". And so I coded this device which is connected to my docking station. Problem solved. :wink:
 
+# Releases
+
+## 1.1
+
+Identification of Mouse Mover can be configured
+
+## 1.0
+
+First release
+
 # Known issues & ideas for later
 
 * The onboard (RGB) LED, connected to GPIO 21, doesn't blink as intended. Once I knew how to let it blink in all colors - but somehow lost the code and didn't quickly find a working example on the Internet.
@@ -26,3 +36,9 @@ If set to a GPIO Pin, the idea is that the onboard LED will blink when the mouse
 ## RGB_BUILTIN
 
 If set to a GPIO Pin, the idea is that the onboard LED will blink when the mouse pointer is moved. Current color is set to blue, but can be customized.
+
+## USB_PRODUCT + USB_MANUFACTURER
+
+Both flags can be used to define the device name. By default, the mouse move will identify depending on the ESP 32 model. With the parameters in the platformio.ini file, it will identify as follows on Windows systems:
+
+![Windows Representation of Device Name](./images/USB-Name.png "Title")

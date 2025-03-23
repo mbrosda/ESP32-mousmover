@@ -43,6 +43,13 @@ void          setup() {
     //-------------------------------------------------------------------
     // Mouse Setup code
     //-------------------------------------------------------------------
+#ifdef USB_PRODUCT
+    USB.productName(USB_PRODUCT);
+    #ifdef USB_MANUFACTURER
+    USB.manufacturerName(USB_MANUFACTURER);
+    USB.productName(((String)USB_MANUFACTURER + ' ' + USB_PRODUCT).c_str());
+    #endif
+#endif
 
     // initialize mouse control:
     Mouse.begin();
