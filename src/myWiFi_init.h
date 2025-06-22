@@ -17,6 +17,9 @@ bool setup_wifi() {
 
     WiFi.mode(WIFI_STA);  // standard mode - see https://stackoverflow.com/questions/55059105/different-wifi-modes-in-arduino-for-esp32
     Serial.printf("Trying to connect to <%s> ", WIFI_SSID);
+#if defined(WIFI_HOSTNAME)
+    WiFi.setHostname(WIFI_HOSTNAME);
+#endif
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);  // initialize connection with SSID and password
 
     //---------------------------------------

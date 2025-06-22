@@ -6,8 +6,8 @@
     #include <ArduinoOTA.h>
     #include <ESPmDNS.h>
 
-    #include <myWiFisecrets.h>
-    #include <myWifiInit.h>
+    #include <myWiFi_secrets.h>
+    #include <myWifi_init.h>
 #endif
 // clang-format on
 
