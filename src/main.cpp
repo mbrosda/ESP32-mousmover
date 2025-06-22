@@ -75,6 +75,25 @@ void setup() {
 #endif
 
 //-------------------------------------------------------------------
+// Powersave setup
+//-------------------------------------------------------------------
+#ifdef POWERSAVE
+    #if defined(OTA)
+    WiFi.setSleep(true);  // enable WiFi power save mode - taken from https://mischianti.org/esp32-practical-power-saving-manage-wifi-and-cpu-1/
+    #endif
+
+    int mhz;
+    mhz = getCpuFrequencyMhz();
+    Serial.printf("CPU Frequency: %d MHz\n\r", mhz);
+    #if defined(OTA)
+    setCpuFrequencyMhz(80);  // set CPU frequency to 80 MHz - WiFi doesn't work below 80 MHz
+    #else
+    setCpuFrequencyMhz(40);  // set CPU frequency to 40 MHz
+    #endif
+    Serial.printf("CPU Frequency is now: %d MHz\n\r", getCpuFrequencyMhz());
+#endif
+
+//-------------------------------------------------------------------
 // Mouse Setup code
 //-------------------------------------------------------------------
 #ifndef USB_DISABLED
@@ -127,7 +146,7 @@ void loop() {
             mousemover_nxt_move_ms = current_millis + mousemover_interval_ms;
             Mouse.move(mousemover_distance, 0, 0);
 
-            // Serial.printf("moved %d pixel\n", mousemover_distance);
+            // Serial.printf("moved %d pixel"\n\r, mousemover_distance);
 
             mousemover_distance = -mousemover_distance;  // revert direction for next move
 

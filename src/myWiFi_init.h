@@ -13,7 +13,7 @@ uint8_t       WifiReconnectCounter   = 0;
 // setup function for WiFi
 //---------------------------------------------------------------------------
 bool setup_wifi() {
-    Serial.println("\n\r-------- Setting up WiFi ...");
+    Serial.println("\r\n\r-------- Setting up WiFi ...");
 
     WiFi.mode(WIFI_STA);  // standard mode - see https://stackoverflow.com/questions/55059105/different-wifi-modes-in-arduino-for-esp32
     Serial.printf("Trying to connect to <%s> ", WIFI_SSID);
@@ -36,14 +36,14 @@ bool setup_wifi() {
             wifisuccess = false;  // exit loop
         }
         delay(100);
-        Serial.print(".");
+        Serial.print("c");
     }
 
     //-------------------
     // successful connect
     //-------------------
     Serial.println("");
-    Serial.printf("WiFi connected to <%s>\n", WiFi.SSID().c_str());
+    Serial.printf("WiFi connected to <%s>\n\r", WiFi.SSID().c_str());
 
     Serial.print("IP Address is: ");
     Serial.println(WiFi.localIP());
@@ -61,4 +61,18 @@ bool setup_wifi() {
     Serial.println(" dBm");
 
     return true;
+}
+
+// functions taken from here: https://mischianti.org/esp32-practical-power-saving-manage-wifi-and-cpu-1/
+void disableWiFi() {
+    // adc_power_off();
+    WiFi.disconnect(true);  // Disconnect from the network
+    WiFi.mode(WIFI_OFF);    // Switch WiFi off
+}
+
+void enableWiFi() {
+    // adc_power_on();
+    WiFi.disconnect(false);  // Reconnect the network
+    WiFi.mode(WIFI_STA);
+    setup_wifi();  // Reconnect to the WiFi network
 }

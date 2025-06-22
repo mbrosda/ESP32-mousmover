@@ -47,7 +47,7 @@ if (current_millis > scheduledWifiReconnect) {
         if (WiFi.status() != WL_CONNECTED) {
             // perform next connection attempt
             WifiReconnectCounter++;
-            Serial.printf("\nReconnect attempt #%d\n", WifiReconnectCounter);
+            Serial.printf("\r\nReconnect attempt #%d\n\r", WifiReconnectCounter);
             setup_wifi();
             scheduledWifiReconnect = 0;
         }
@@ -55,7 +55,7 @@ if (current_millis > scheduledWifiReconnect) {
 
     // finally give up ...
     if (WifiReconnectCounter == WifiGiveUpAfterTries) {
-        Serial.printf("Tried %d times to reconnect ... giving up\n\n", WifiReconnectCounter);
+        Serial.printf("Tried %d times to reconnect ... giving up\n\r", WifiReconnectCounter);
         WifiReconnectCounter++;  // ensure that this loop is not entered any more
     }
 }

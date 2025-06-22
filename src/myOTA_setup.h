@@ -42,5 +42,5 @@ ArduinoOTA.setPassword(OTA_PASSWORD);
 // finalize setup
 //---------------
 ArduinoOTA.setHostname(Hostname.c_str());
-Serial.printf("OTA Hostname is: %s\n", ArduinoOTA.getHostname().c_str());
+Serial.printf("OTA Hostname is: %s\n\r", ArduinoOTA.getHostname().c_str());
 ArduinoOTA.begin();
