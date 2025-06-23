@@ -25,7 +25,7 @@ unsigned long mousemover_nxt_move_ms = 5000;
 // regular values
 bool          TESTMODE               = false;
 int8_t        mousemover_distance    = 2;
-unsigned long mousemover_interval_ms = 270000;
+unsigned long mousemover_interval_ms = 150000;
     #else
 // TEST values
 bool          TESTMODE               = true;
